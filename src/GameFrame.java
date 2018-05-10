@@ -46,15 +46,52 @@ public class GameFrame {
 		
 	}
 	
-	public Boolean checkMove(Vehicle v,int directions,int moves) {
+	/*public Boolean checkMove(Vehicle v,int directions,int moves) {
 	
 		if(v.getDirection() == Vehicle.Horizontal) {
 			
 			if(directions == Vehicle.LEFT) {
 				for(int i = 0; i < moves; i++) {
-					
+					if(this.Board[v.getPosisionx()-i][v.getPosisiony()] == v.getId() || this.Board[v.getPosisionx()-i][v.getPosisiony()] == 0) {
+						continue;
+					}
+					else {
+						return false;
+					}
 				}
-			
+			}
+			else if(directions == Vehicle.RIGHT) {
+				for(int i = 0; i < moves; i++) {
+					if(this.Board[v.getPosisionx()+i][v.getPosisiony()] == v.getId() || this.Board[v.getPosisionx()+i][v.getPosisiony()] == 0) {
+						continue;
+					}
+					else {
+						return false;
+					}
+				}
+					
+			}
+		}
+		else {
+			if(directions == Vehicle.UP) {
+				for(int i = 0; i < moves; i++) {
+					if(this.Board[v.getPosisionx()][v.getPosisiony()+i] == v.getId() || this.Board[v.getPosisionx()-i][v.getPosisiony()+i] == 0) {
+						continue;
+					}
+					else {
+						return false;
+					}
+				}
+			}
+			else if(directions == Vehicle.RIGHT) {
+				for(int i = 0; i < moves; i++) {
+					if(this.Board[v.getPosisionx()][v.getPosisiony()-i] == v.getId() || this.Board[v.getPosisionx()][v.getPosisiony()-i] == 0) {
+						continue;
+					}
+					else {
+						return false;
+					}
+				}
 					
 			}
 		}
@@ -63,7 +100,7 @@ public class GameFrame {
 		return true;	
 	}
 	
-	
+	*/
 	
 	public int[][] getBoard() {
 		return Board;

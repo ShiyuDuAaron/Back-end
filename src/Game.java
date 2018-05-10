@@ -27,7 +27,7 @@ public class Game {
 	
 	public void MoveVehicle(Vehicle v, int directions, int moves) {
 		
-		if(!gameframe.checkMove(v, moves)) {
+		if(v.isValidMove(gameframe.getBoard(), directions, moves)) {
 			System.out.println("Invalid move");
 			return;
 		}
@@ -35,10 +35,10 @@ public class Game {
 		v.move(directions, moves);
 		//gameframe.getVehicleList().add(v);
 		
-		
+		//System.out.println(gameframe.getVehicleList().size());
 		gameframe.iniBoard();
 		for(Vehicle newV: gameframe.getVehicleList()) {
-			newV.printVehlcle(gameframe.getBoard());
+			newV.printVehicle(gameframe.getBoard());
 		}
 		gameframe.PrintBoard();	
 	}
