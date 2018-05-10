@@ -30,6 +30,11 @@ public class Game {
 		
 	}
 	
+	public void addMove(Move m) {
+		this.stack.add(m);
+	}
+
+	
 	
 	public int getScore() {
 		return score;

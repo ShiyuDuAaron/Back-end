@@ -11,10 +11,11 @@ public class Vehicle {
 	 * @param posisiony
 	 * @param direction
 	 */
-	public Vehicle(int length, int id, int posisionx, int posisiony, int direction) {
+	public Vehicle(int length, int id,int type, int posisionx, int posisiony, int direction) {
 		super();
 		this.length = length;
 		Id = id;
+		this.type = type;
 		this.posisionx = posisionx;
 		this.posisiony = posisiony;
 		this.direction = direction;
@@ -59,7 +60,7 @@ public class Vehicle {
 	 */
 	public void move(int directions, int moves) {
 		if(this.direction == Horizontal) {
-			if(directions != LEFT || directions != RIGHT) {
+			if(directions != LEFT && directions != RIGHT) {
 				System.out.println("Invalid direction");
 				return;
 			}
@@ -68,7 +69,7 @@ public class Vehicle {
 			}
 		}
 		else {
-			if(directions != UP || directions != DOWN) {
+			if(directions != UP && directions != DOWN) {
 				System.out.println("Invalid direction");
 				return;
 			}
@@ -84,10 +85,10 @@ public class Vehicle {
 	
 	public void printVehlcle(int[][] Board) {
 		//if it is horizontal
-		if(this.direction == 1) {
+		if(this.direction == Horizontal) {
 			for(int i = 0; i < this.length; i++) {
-				if(Board[this.posisionx+i][this.posisiony] == 0) {
-					Board[this.posisionx + i][this.posisiony] = this.Id;
+				if(Board[this.posisionx][this.posisiony+i] == 0) {
+					Board[this.posisionx+i][this.posisiony] = this.Id;
 				}
 				else {
 					System.out.println("Invalid vehicle");
@@ -99,7 +100,7 @@ public class Vehicle {
 		else {
 			for(int j = 0; j < this.length; j++) {
 				if(Board[this.posisionx][this.posisiony+j] == 0) {
-					Board[this.posisionx][this.posisiony + j] = this.Id;
+					Board[this.posisionx][this.posisiony+j] = this.Id;
 				}
 				else {
 					System.out.println("Invalid vehicle");
@@ -123,11 +124,22 @@ public class Vehicle {
 	}
 	
 	
+	public int getType() {
+		return type;
+	}
+
+
+	public void setType(int type) {
+		this.type = type;
+	}
+
+
 	private int length;
 	private int Id;
 	private int posisionx;
 	private int posisiony;
 	private int direction;
+	private int type;
 	public static final int Horizontal = 1;
 	public static final int Vertical = 2;
 	public static final int RIGHT = 3;

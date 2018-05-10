@@ -37,5 +37,4 @@ public class Move {
 	private Vehicle vehlcle;
 	private int direction;
 	private int NoOfMove;
-	
 }
