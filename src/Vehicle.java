@@ -64,6 +64,9 @@ public class Vehicle {
 				System.out.println("Invalid direction");
 				return;
 			}
+			else if(directions == LEFT){
+				this.posisionx = this.posisionx - moves;
+			}
 			else {
 				this.posisionx = this.posisionx + moves;
 			}
@@ -72,6 +75,9 @@ public class Vehicle {
 			if(directions != UP && directions != DOWN) {
 				System.out.println("Invalid direction");
 				return;
+			}
+			else if(directions == UP) {
+				this.posisiony = this.posisiony - moves;
 			}
 			else {
 				this.posisiony = this.posisiony + moves;

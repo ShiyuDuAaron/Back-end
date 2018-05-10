@@ -4,10 +4,9 @@ import java.util.Stack;
 public class Game {
 	
 	
-	public Game(Stack<Move> stack, int score, GameFrame gameframe) {
+	public Game() {
 		this.stack = new Stack<Move>();
-		this.score = score;
-		this.gameframe = gameframe;
+		this.gameframe = new GameFrame();
 	}
 	
 	/**
@@ -15,9 +14,7 @@ public class Game {
 	 */
 	
 	public void undo() {
-		
-		
-		
+
 	}
 	
 	/**
@@ -25,10 +22,30 @@ public class Game {
 	 */
 	
 	public void ScoreCaculate() {
-		
-		
-		
+			
 	}
+	
+	public void MoveVehicle(Vehicle v, int directions, int moves) {
+		
+		if(!gameframe.checkMove(v, moves)) {
+			System.out.println("Invalid move");
+			return;
+		}
+		//gameframe.getVehicleList().remove(v);
+		v.move(directions, moves);
+		//gameframe.getVehicleList().add(v);
+		
+		
+		gameframe.iniBoard();
+		for(Vehicle newV: gameframe.getVehicleList()) {
+			newV.printVehlcle(gameframe.getBoard());
+		}
+		gameframe.PrintBoard();	
+	}
+	
+	
+	
+	
 	
 	public void addMove(Move m) {
 		this.stack.add(m);

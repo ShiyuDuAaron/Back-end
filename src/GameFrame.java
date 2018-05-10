@@ -14,6 +14,14 @@ public class GameFrame {
 	
 	}
 	
+	public ArrayList<Vehicle> getVehicleList() {
+		return VehicleList;
+	}
+
+	public void setVehicleList(ArrayList<Vehicle> vehicleList) {
+		VehicleList = vehicleList;
+	}
+
 	public void addVehicle(Vehicle v) {
 		VehicleList.add(v);
 	}
@@ -33,34 +41,25 @@ public class GameFrame {
 				System.out.print(this.getBoard()[x][y]);
 			}
 			System.out.println();
-		}	
+		}
+		
+		
 	}
 	
-	public Boolean checkMove(Vehicle v, int moves) {
+	public Boolean checkMove(Vehicle v,int directions,int moves) {
 	
 		if(v.getDirection() == Vehicle.Horizontal) {
 			
-			for(int i = 0; i < moves; i++) {
-				if(v.getPosisionx()+i == v.getId() || v.getPosisionx()+i == 0) {
-					continue;
+			if(directions == Vehicle.LEFT) {
+				for(int i = 0; i < moves; i++) {
+					
 				}
-				else {
-					return false;
-				}
-			}
-		}
-		else {
-			for(int i = 0; i < moves; i++) {
-				if(v.getPosisiony()+i == v.getId() || v.getPosisiony()+i == 0) {
-					continue;
-				}
-				else {
-					return false;
-				}
+			
+					
 			}
 		}
 		
-
+		
 		return true;	
 	}
 	
