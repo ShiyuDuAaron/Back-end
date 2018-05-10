@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 
+
 public class Vehicle {
 
 	/**
@@ -56,9 +57,9 @@ public class Vehicle {
 	 * @param direction the direction vehicle need to move;
 	 * @param moves the numbers of move;
 	 */
-	public void move(String directions, int moves) {
-		if(this.direction == 1) {
-			if(!(directions.equals("left") || directions.equals("right"))) {
+	public void move(int directions, int moves) {
+		if(this.direction == Horizontal) {
+			if(directions != LEFT || directions != RIGHT) {
 				System.out.println("Invalid direction");
 				return;
 			}
@@ -67,15 +68,14 @@ public class Vehicle {
 			}
 		}
 		else {
-			if(!(directions.equals("up") || directions.equals("down"))) {
+			if(directions != UP || directions != DOWN) {
 				System.out.println("Invalid direction");
 				return;
 			}
 			else {
 				this.posisiony = this.posisiony + moves;
 			}
-		}
-		
+		}		
 	}
 	
 	/**
@@ -110,12 +110,28 @@ public class Vehicle {
 	}
 	
 	
+	/**
+	 * 
+	 * @param Board
+	 * @param vehicle
+	 * @return
+	 */
+	
+	public int checkValid(ArrayList<Vehicle> List, int moves) {
+		
+		return 0;	
+	}
+	
+	
 	private int length;
 	private int Id;
 	private int posisionx;
 	private int posisiony;
-	/**
-	 * 1 is horizontal and 2 is vertical
-	 */
 	private int direction;
+	public static final int Horizontal = 1;
+	public static final int Vertical = 2;
+	public static final int RIGHT = 3;
+	public static final int LEFT = 4;
+	public static final int UP = 5;
+	public static final int DOWN = 6;
 }
