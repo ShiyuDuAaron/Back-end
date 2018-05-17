@@ -1,3 +1,6 @@
+/**
+ * @author Arron
+ */
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Random;
@@ -6,8 +9,19 @@ public class Generator {
 
 	private static final Random Ran = new Random();
 	
+	/**
+	 * Generates a random vehicle list and returns it
+	 * 
+	 * 
+	 * @param g
+	 * @param minSteps
+	 * @param size
+	 * @param times - the number of repetition of the function avoid it run out
+	 * @return
+	 * @throws CloneNotSupportedException
+	 */
 	
-	public ArrayList<Vehicle> generateRandomGame(GameEngine g, int minSteps, int size) throws CloneNotSupportedException{
+	public ArrayList<Vehicle> generateRandomGame(GameEngine g, int minSteps, int size, int times) throws CloneNotSupportedException{
 		
 		//construt a list of vehicles for the game
 		ArrayList<Vehicle> Vehicles = new ArrayList<Vehicle>();
@@ -25,7 +39,7 @@ public class Generator {
 		int type = (int)(Math.random()*4+2);
 		int id = 2;
 		
-		while(pathLength < minSteps) {
+		while(pathLength < minSteps && times-- > 0) {
 			
 			if(newGame.getVehicleList().size() < size){
 				
